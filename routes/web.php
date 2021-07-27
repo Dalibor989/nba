@@ -29,6 +29,8 @@ Route::group([
     Route::get('/players/{player}', [PlayerController::class, 'show'])->name('show.players');
     Route::post('/logout', [AuthController::class, 'logout']);
 
+    Route::get('/email/verify', [AuthController::class, 'getEmailVerificationNotice'])->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])->middleware(['signed'])->name('verification.verify');
 });
 
 Route::group([
