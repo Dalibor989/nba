@@ -23,11 +23,12 @@ Route::group([
 ], function () {
     Route::get('/', [TeamController::class, 'index'])->name('index.teams');
     Route::get('/teams/{team}', [TeamController::class, 'show'])->name('show.teams');
+    
+    Route::post('/teams/{team}/comments', [CommentController::class, 'store'])->name('post.comment');
 
     Route::get('/players/{player}', [PlayerController::class, 'show'])->name('show.players');
     Route::post('/logout', [AuthController::class, 'logout']);
 
-    Route::post('/teams/{team}/comments', [CommentController::class, 'store'])->name('post.comment');
 });
 
 Route::group([
@@ -35,7 +36,8 @@ Route::group([
 ], function () {
     Route::get('/register', [AuthController::class, 'getRegisterForm']);
     Route::post('/register', [AuthController::class, 'register']);
-
+    
     Route::get('/login', [AuthController::class, 'getLoginForm']);
     Route::post('/login', [AuthController::class, 'login'])->name('login');
+    
 });

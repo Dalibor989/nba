@@ -12,8 +12,8 @@ class CommentController extends Controller
 {
     public function store(Team $team, CreateCommentRequest $request)
     {
-        $data = $request->validated();
         info('neka tekst');
+        $data = $request->validated();
         $comment = new Comment;
         $comment->content = $data['content'];
 

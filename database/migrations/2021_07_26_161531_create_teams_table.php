@@ -17,7 +17,7 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('adress');
+            $table->string('address');
             $table->string('city');
             $table->timestamps();
         });
