@@ -25,9 +25,9 @@ class AuthController extends Controller
 
         event(new Registered($user));
 
-        // auth()->login($user);
+        auth()->login($user);
 
-        return redirect('/login');
+        return redirect('/');
     }
 
     public function getLoginForm()

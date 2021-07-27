@@ -20,8 +20,8 @@
 <form method="POST" action="{{ route('post.comment', ['team' => $team]) }}">
     @csrf
     <div class="form-group">
-        <label for="body">Comment</label>
-        <textarea name="body" class="form-control" id="body" rows="3" placeholder="Write your comment here..."></textarea>
+        <label for="content">Comment</label>
+        <textarea name="content" class="form-control" id="content" rows="3" placeholder="Write your comment here..."></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

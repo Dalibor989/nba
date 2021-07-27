@@ -23,4 +23,9 @@ class CommentController extends Controller
 
         return back();
     }
+
+    public function show() 
+    {
+        return view('forbidden.forbidden-comment');
+    }
 }

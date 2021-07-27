@@ -24,14 +24,16 @@ Route::group([
     Route::get('/', [TeamController::class, 'index'])->name('index.teams');
     Route::get('/teams/{team}', [TeamController::class, 'show'])->name('show.teams');
     
+    Route::get('/forbidden', [CommentController::class, 'show']);
     Route::post('/teams/{team}/comments', [CommentController::class, 'store'])->name('post.comment');
-
+    
     Route::get('/players/{player}', [PlayerController::class, 'show'])->name('show.players');
     Route::post('/logout', [AuthController::class, 'logout']);
-
+    
     Route::get('/email/verify', [AuthController::class, 'getEmailVerificationNotice'])->name('verification.notice');
     Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])->middleware(['signed'])->name('verification.verify');
 });
+
 
 Route::group([
     'middleware' => 'guest'

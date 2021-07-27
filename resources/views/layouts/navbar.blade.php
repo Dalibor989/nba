@@ -16,6 +16,9 @@
 
             @auth
             <li class="nav-item">
+                <span class="nav-link">{{auth()->user()->name}}</a>
+            </li>
+            <li class="nav-item">
                 <form method="POST" action="/logout">
                     @csrf
                     <button class="btn btn-link nav-link" type="submit">Logout</button>
