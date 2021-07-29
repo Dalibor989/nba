@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Team;
 use App\Models\Comment;
 use App\Http\Requests\CreateCommentRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CommentReceived;
 
 class CommentController extends Controller
 {
@@ -21,11 +23,11 @@ class CommentController extends Controller
         $comment->user()->associate(auth()->user());
         $comment->save();
 
+        Mail::to($team)->send(
+            new CommentReceived($comment, $team)
+        );
+
         return back();
     }
 
-    public function show() 
-    {
-        return view('forbidden.forbidden-comment');
-    }
 }
