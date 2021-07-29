@@ -16,6 +16,9 @@
 
             @auth
             <li class="nav-item">
+                <a class="nav-link" href="/news">News</a>
+            </li>
+            <li class="nav-item">
                 <span class="nav-link">{{auth()->user()->name}}</a>
             </li>
             <li class="nav-item">

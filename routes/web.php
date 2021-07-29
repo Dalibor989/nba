@@ -5,6 +5,8 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NewsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,9 @@ Route::group([
 ], function () {
     Route::get('/', [TeamController::class, 'index'])->name('index.teams');
     Route::get('/teams/{team}', [TeamController::class, 'show'])->name('show.teams');
+
+    Route::get('/news', [NewsController::class, 'index']);
+    Route::get('/news/{n}', [NewsController::class, 'show'])->name('show.news');
     
     Route::get('/forbidden', [CommentController::class, 'show']);
     Route::post('/teams/{team}/comments', [CommentController::class, 'store'])->name('post.comment');
