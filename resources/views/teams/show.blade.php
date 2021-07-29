@@ -16,6 +16,12 @@
 <p><a href="{{ route('show.players', ['player' => $player]) }}">{{ $player->first_name . ' ' . $player->last_name }}</a></p>
 @endforeach
 
+<h3>News:</h3>
+
+@foreach($team->news as $n)
+<p><a href="{{ route('show.news', ['n' => $n]) }}">{{ $n->title }}</a></p>
+@endforeach
+
 @auth
 <form method="POST" action="{{ route('post.comment', ['team' => $team]) }}">
     @csrf

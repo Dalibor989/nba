@@ -14,7 +14,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::all();
+        $teams = Team::with('news')->paginate(10);
         return view('teams.index', compact('teams'));
     }
 
